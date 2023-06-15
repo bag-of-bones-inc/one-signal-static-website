@@ -1,10 +1,69 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="utf-8">
-  <title>test static website</title>
-  <link rel="manifest" href="manifest.json"/>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=2.0,minimum-scale=1.0,user-scalable=yes">
+
+<link rel="manifest" href="../manifest.json">
+<title>MyPage｜デモこども園</title>
+
+<link href="./css/main_mp.css" rel="stylesheet" type="text/css">
+<link href="./css/button_mp.css" rel="stylesheet" type="text/css">
+
+<style>
+.omakasekids {
+width:calc(500/600 * 100vw);
+height: calc(394/600 * 100vw)
+}
+    @media(min-width:768px) {
+.omakasekids {
+    width: 500px;
+    height: 394px;
+    text-align: center;
+}
+}
+</style>
 </head>
-
-<body>
-  <p>click <a href="homepage.html">here</a> to login</p>
-
-</body></html>
+<!--保護者マイページ　ログインページ-->
+<body class="log_in_mypage bg_white">
+<header>
+<div class="head_bar">
+<div>
+<h1>デモこども園 <br>マイページ</h1>
+</div>"
+</div>
+</header>
+</td>
+</tr>
+</table>
+<br>
+<div align="center"> <img class="omakasekids" src="img/omakasekids_anime.gif" alt="おまかせ保育システム"> 
+  <!-- <br>
+<img src="./img/omakase_MP_logo.png" width="90%"><br>
+ --> 
+  <br>
+  <br>
+  <br>
+  <table width="86%" border="0" cellspacing="0" cellpadding="2">
+    <tr>
+      <td align="center"><form action="do_login0_test.html" method="post">
+          <table border="0" style="font-size:16px;" cellpadding="4">
+            <tr>
+              <td class="w33 bold15" align="right">ログインID</td>
+              <td><input type="text" name="m_id" value="" placeholder="ログインID" align="right" style="width:180px;height:40px;font-size:16pt;"></td>
+            </tr>
+            <tr>
+              <td class="w33 bold15" align="right">パスワード</td>
+              <td><input type="password" name="m_passwd" value="" placeholder="パスワード" align="right" style="width:180px;height:40px;font-size:16pt;"></td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center"><br>
+                <input type="submit" value="ログイン" class="btn_pink_w"></td>
+            </tr>
+          </table>
+        </form></td>
+    </tr>
+  </table>
+  <br>
+</div>
+</body>
+</html>
