@@ -8,7 +8,16 @@
 
 <link href="./css/main_mp.css" rel="stylesheet" type="text/css">
 <link href="./css/button_mp.css" rel="stylesheet" type="text/css">
+<script>
+  let loginForm = document.getElementById("loginForm");
 
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // handle submit
+    window.location.href = "menu_test.html";
+  });
+</script>
 <style>
 .omakasekids {
 width:calc(500/600 * 100vw);
@@ -45,7 +54,7 @@ height: calc(394/600 * 100vw)
   <br>
   <table width="86%" border="0" cellspacing="0" cellpadding="2">
     <tr>
-      <td align="center"><form action="do_login0_test.html" method="post">
+      <td align="center"><form action="" id="loginForm">
           <table border="0" style="font-size:16px;" cellpadding="4">
             <tr>
               <td class="w33 bold15" align="right">ログインID</td>
