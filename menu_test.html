@@ -2,7 +2,54 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=width=device-width,initial-scale=1.0,maximum-scale=2.0,minimum-scale=1.0,user-scalable=yes"><title>MyPage｜デモこども園</title><link rel="manifest" href="../manifest.json"><link href="./css/main_mp.css" rel="stylesheet" type="text/css"><link href="./css/button_mp.css" rel="stylesheet" type="text/css"><!-- OneSignalで、プッシュ通知の送信確認プロンプト表示、トークン発行の処理 -->
 	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
-	<script src="https://www.omakase-hoiku2.jp/demo5_dev/js/process_push_tokens.js"></script>
+	<script>
+		window.OneSignal = window.OneSignal || [];
+		  OneSignal.push(function () {
+		  	OneSignal.SERVICE_WORKER_PARAM = { scope: '/one-signal-static-website/' };
+		    OneSignal.SERVICE_WORKER_PATH = 'one-signal-static-website/OneSignalSDKWorker.js'
+		    OneSignal.SERVICE_WORKER_UPDATER_PATH = '/one-signal-static-website/OneSignalSDKWorker.js'
+
+		    OneSignal.init({
+		      appId: "e223b781-a1db-4cc9-b489-c27cbedbaa41",
+		      safari_web_id: "web.onesignal.auto.276b1587-9df2-49f1-886b-c818bd2e0d3c",
+		      welcomeNotification: {
+		          title: "縺翫∪縺九○菫晁ご繧ｷ繧ｹ繝�Β",
+		          message: "縺翫∪縺九○菫晁ご繧ｷ繧ｹ繝�Β縺九ｉ縺ｮ騾夂衍繧定ｨｱ蜿ｯ縺励※荳九＆繧浬n縺ゅｊ縺後→縺�＃縺悶＞縺ｾ縺呻ｼ�"
+		        },
+		      promptOptions: {
+		        slidedown: {
+		          prompts: [
+		            {
+		              type: "push",
+		              autoPrompt: false, // 閾ｪ蜍戊｡ｨ遉ｺ縺励↑縺�
+		              text: {
+		                actionMessage: "縺翫∪縺九○菫晁ご繧ｷ繧ｹ繝�Β縺九ｉ縺ｮ\n繝励ャ繧ｷ繝･騾夂衍繧定ｨｱ蜿ｯ縺励∪縺吶°��",
+		                acceptButton: "險ｱ蜿ｯ縺吶ｋ",
+		                cancelButton: "蠕後〒"
+		              },
+		              delay: {
+		                pageViews: 1,
+		                timeDelay: 1
+		              }
+		            }
+		          ]
+		        }
+		      }
+		    });
+		    
+		    OneSignal.showSlidedownPrompt(); // 謇句虚縺ｧ繝繧､繧｢繝ｭ繧ｰ繧定｡ｨ遉ｺ縺吶ｋ
+		    
+		    
+		    OneSignal.on('subscriptionChange', function (isSubscribed) { // 繝励ャ繧ｷ繝･騾夂衍繧定ｨｱ蜿ｯ縺励◆髫帙�蜃ｦ逅�
+		      if (isSubscribed) {
+		        OneSignal.getUserId(function(userId) {
+		          insert_token(userId);
+		        });
+
+		      }
+		    });
+		  });
+	</script>
 	</head><body class="admin bg_white">
 	
 	<style>
