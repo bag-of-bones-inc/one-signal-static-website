@@ -10,10 +10,10 @@
 <link href="./css/button_mp.css" rel="stylesheet" type="text/css">
 <script>
 
-  const redirect = (()=>{
+  function redirect(){
     console.log("onclick not working");
     window.location.href = "menu_test.html";
-  });
+  };
 </script>
 <style>
 .omakasekids {
@@ -51,7 +51,7 @@ height: calc(394/600 * 100vw)
   <br>
   <table width="86%" border="0" cellspacing="0" cellpadding="2">
     <tr>
-      <td align="center"><form action="" id="loginForm" onclick="redirect()">
+      <td align="center"><form id="loginForm" onclick="redirect()">
           <table border="0" style="font-size:16px;" cellpadding="4">
             <tr>
               <td class="w33 bold15" align="right">ログインID</td>
