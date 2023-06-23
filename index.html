@@ -9,18 +9,18 @@
 <link href="./css/main_mp.css" rel="stylesheet" type="text/css">
 <link href="./css/button_mp.css" rel="stylesheet" type="text/css">
 <script>
-
-  function redirect(){
-    console.log("onclick not working");
-    window.location.href = "menu_test.html";
-  };
+const redirect = (()=>{
+  console.log("onclick not working");
+  window.location.href = "menu_test.html";
+});
 </script>
 <style>
 .omakasekids {
 width:calc(500/600 * 100vw);
 height: calc(394/600 * 100vw)
 }
-    @media(min-width:768px) {
+
+@media(min-width:768px) {
 .omakasekids {
     width: 500px;
     height: 394px;
