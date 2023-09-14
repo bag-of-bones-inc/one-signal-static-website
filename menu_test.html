@@ -1,9 +1,10 @@
 
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="viewport" content="width=width=device-width,initial-scale=1.0,maximum-scale=2.0,minimum-scale=1.0,user-scalable=yes"><title>MyPage｜デモこども園</title>
+	<meta name="viewport" content="width=width=device-width,initial-scale=1.0,maximum-scale=2.0,minimum-scale=1.0,user-scalable=yes"><title>MyPage｜OneSignal</title>
 	<!-- <link rel="manifest" href="../manifest.json"> -->
-	<link href="./css/main_mp.css" rel="stylesheet" type="text/css">
-	<link href="./css/button_mp.css" rel="stylesheet" type="text/css"><!-- OneSignalで、プッシュ通知の送信確認プロンプト表示、トークン発行の処理 -->
+	<!-- <link href="./css/main_mp.css" rel="stylesheet" type="text/css"> -->
+	<!-- <link href="./css/button_mp.css" rel="stylesheet" type="text/css"> -->
+	<!-- OneSignalで、プッシュ通知の送信確認プロンプト表示、トークン発行の処理 -->
 	<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script><script>
 	  window.OneSignalDeferred = window.OneSignalDeferred || [];
 	  OneSignalDeferred.push(function(OneSignal) {
@@ -15,24 +16,20 @@
 	      },
 	      serviceWorkerParam: { scope: "/one-signal-static-website/" },
     	  serviceWorkerPath: "one-signal-static-website/OneSignalSDKWorker.js",
-	      welcomeNotification: {
-	          title: "縺翫∪縺九○菫晁ご繧ｷ繧ｹ繝�Β",
-	          message: "縺翫∪縺九○菫晁ご繧ｷ繧ｹ繝�Β縺九ｉ縺ｮ騾夂衍繧定ｨｱ蜿ｯ縺励※荳九＆繧浬n縺ゅｊ縺後→縺�＃縺悶＞縺ｾ縺呻ｼ�"
-	        },
 	      promptOptions: {
 	        slidedown: {
 	          prompts: [
 	            {
 	              type: "push",
-	              autoPrompt: false, // 閾ｪ蜍戊｡ｨ遉ｺ縺励↑縺�
+	              autoPrompt: true,
 	              text: {
-	                actionMessage: "縺翫∪縺九○菫晁ご繧ｷ繧ｹ繝�Β縺九ｉ縺ｮ\n繝励ャ繧ｷ繝･騾夂衍繧定ｨｱ蜿ｯ縺励∪縺吶°��",
-	                acceptButton: "險ｱ蜿ｯ縺吶ｋ",
-	                cancelButton: "蠕後〒"
+	                actionMessage: "We'd like to show you notifications for the latest news and updates.",
+	                acceptButton: "Allow",
+	                cancelButton: "Cancel"
 	              },
 	              delay: {
-	                pageViews: 1,
-	                timeDelay: 1
+	                pageViews: 0,
+	                timeDelay: 5
 	              }
 	            }
 	          ]
