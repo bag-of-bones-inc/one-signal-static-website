@@ -5,6 +5,11 @@
 	<!-- <link href="./css/main_mp.css" rel="stylesheet" type="text/css"> -->
 	<!-- <link href="./css/button_mp.css" rel="stylesheet" type="text/css"> -->
 	<!-- OneSignalで、プッシュ通知の送信確認プロンプト表示、トークン発行の処理 -->
+	<script>
+	const addTag = (()=>{
+	  
+	});
+	</script>
 	<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script><script>
 	  window.OneSignalDeferred = window.OneSignalDeferred || [];
 	  OneSignalDeferred.push(function(OneSignal) {
@@ -99,10 +104,21 @@
 	<header>
     <div class="head_bar">
         <div>
-            <h1>デモこども園 <br>マイページ</h1>
+            <h1>OneSignal Test</h1>
         </div>
     </div>
-</header><!-- 
+</header>
+<ul class="btn_wrap_mp" align="center">
+    <li><a href="#" onclick="redirect()">
+            <p>add tag "{ test: 1 }"</p>
+    </li>
+    <li><a href="http://www.sumatoku.jp/sample/index_test.php" target="new_window"><img src="./img/icon_hogosya_hp.png">
+            <p>ホームページ</p>
+    </li>
+    <li><a href="logout.php"><img src="./img/z_logout.png">
+            <p>ログアウト</p>
+    </li>
+</ul><!-- 
 <div align="center"><br>
     <h2>井上　若菜 様</h2>
     <div align="center">
