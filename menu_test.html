@@ -39,7 +39,8 @@
 
 	  });
 	const addTag = (()=>{
-	  OneSignal.User.addTags([{ "test": "1"}])
+	  OneSignal.User.addTag("test", "1");
+	  alert("tag added");
 	});
 	</script>
 	</head>
@@ -53,12 +54,6 @@
 	</header>
 	<ul class="btn_wrap_mp" align="center">
 	    <li><a href="#" onclick="addTag()">add tag "{ test: 1 }"</a>
-	    </li>
-	    <li><a href="http://www.sumatoku.jp/sample/index_test.php" target="new_window"><img src="./img/icon_hogosya_hp.png">
-	            <p>ホームページ</p>
-	    </li>
-	    <li><a href="logout.php"><img src="./img/z_logout.png">
-	            <p>ログアウト</p>
 	    </li>
 	</ul>
 	</body>
