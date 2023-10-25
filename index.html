@@ -21,18 +21,16 @@
     });
   }); 
 
-  // function permissionChangeListener(permission) {
+  function permissionChangeListener(permission) {
 
-  //   if (!permission) {
-  //       console.log('promptSlide')
-  //       window.OneSignal.Slidedown.promptPush()
-  //     }
+    if (!permission) {
+        console.log('promptSlide')
+        OneSignal.Slidedown.promptPush()
+      }
 
-  // }
+  }
 
-  // OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
-
-  
+  OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
 
   // OneSignal.login("100234")
   
