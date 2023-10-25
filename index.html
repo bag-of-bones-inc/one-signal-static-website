@@ -21,7 +21,7 @@
     OneSignal.Notifications.addEventListener("permissionChange", ()=>{
       if (!permission) {
         console.log('promptSlide')
-        // OneSignal.Slidedown.promptPush()
+        window.OneSignal.Slidedown.promptPush()
       }
     });
   });
