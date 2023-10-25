@@ -13,6 +13,12 @@
     OneSignal.init({
       appId: "6970c1c2-d726-4426-ac3b-b029c0fc0bce",
     });
+    OneSignal.Notifications.addEventListener("permissionChange", ()=>{
+      if (!permission) {
+        console.log('promptSlide')
+        OneSignal.Slidedown.promptPush()
+      }
+    });
   }); 
 
   // function permissionChangeListener(permission) {
@@ -26,12 +32,7 @@
 
   // OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
 
-  window.OneSignalDeferred.OneSignal.Notifications.addEventListener("permissionChange", ()=>{
-    if (!permission) {
-      console.log('promptSlide')
-      OneSignal.Slidedown.promptPush()
-    }
-  });
+  
 
   // OneSignal.login("100234")
   
