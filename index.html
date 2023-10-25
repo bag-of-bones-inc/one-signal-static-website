@@ -9,68 +9,76 @@
 
 <link href="./css/main_mp.css" rel="stylesheet" type="text/css">
 <link href="./css/button_mp.css" rel="stylesheet" type="text/css">
-<script>
-const redirect = (()=>{
-  console.log("onclick not working");
-  window.location.href = "menu_test.html";
-});
-</script>
-<style>
-.omakasekids {
-width:calc(500/600 * 100vw);
-height: calc(394/600 * 100vw)
-}
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script><script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: "6970c1c2-d726-4426-ac3b-b029c0fc0bce",
+        // safari_web_id: "web.onesignal.auto.235723f6-f2ef-49f2-bb5e-e966332d4e54",
+        notifyButton: {
+          enable: true,
+        },
+        // serviceWorkerParam: { scope: "/one-signal-static-website/" },
+        // serviceWorkerPath: "one-signal-static-website/OneSignalSDKWorker.js",
+        // promptOptions: {
+        //   slidedown: {
+        //     prompts: [
+        //       {
+        //         type: "push",
+        //         autoPrompt: true,
+        //         text: {
+        //           actionMessage: "We'd like to show you notifications for the latest news and updates.",
+        //           acceptButton: "Allow",
+        //           cancelButton: "Cancel"
+        //         },
+        //         delay: {
+        //           pageViews: 0,
+        //           timeDelay: 5
+        //         }
+        //       }
+        //     ]
+        //   }
+        // }
+      });
 
-@media(min-width:768px) {
-.omakasekids {
-    width: 500px;
-    height: 394px;
-    text-align: center;
-}
-}
-</style>
-</head>
-<!--保護者マイページ　ログインページ-->
-<body class="log_in_mypage bg_white">
-<header>
-<div class="head_bar">
-<div>
-<h1>デモこども園 <br>マイページ</h1>
-</div>"
-</div>
-</header>
-</td>
-</tr>
-</table>
-<br>
-<div align="center"> <img class="omakasekids" src="img/omakasekids_anime.gif" alt="おまかせ保育システム"> 
-  <!-- <br>
-<img src="./img/omakase_MP_logo.png" width="90%"><br>
- --> 
-  <br>
-  <br>
-  <br>
-  <table width="86%" border="0" cellspacing="0" cellpadding="2">
-    <tr>
-      <td align="center"><form id="loginForm">
-          <table border="0" style="font-size:16px;" cellpadding="4">
-            <tr>
-              <td class="w33 bold15" align="right">ログインID</td>
-              <td><input type="text" name="m_id" value="" placeholder="ログインID" align="right" style="width:180px;height:40px;font-size:16pt;"></td>
-            </tr>
-            <tr>
-              <td class="w33 bold15" align="right">パスワード</td>
-              <td><input type="password" name="m_passwd" value="" placeholder="パスワード" align="right" style="width:180px;height:40px;font-size:16pt;"></td>
-            </tr>
-            <tr>
-              <td colspan="2" align="center"><br>
-                <input type="button" value="ログイン" class="btn_pink_w" onclick="redirect()"></td>
-            </tr>
-          </table>
-        </form></td>
-    </tr>
-  </table>
-  <br>
-</div>
-</body>
+      const eventListener = (()=>{
+      OneSignal.Notifications.addEventListener("permissionChange", ()=>{
+        if (!permission) {
+          console.log('promptSlide')
+          OneSignal.Slidedown.promptPush()
+        }
+      })
+    });
+
+    setTimeout(eventListener(), 5000);
+
+    });
+    
+    // OneSignal.login("100234")
+  
+  const addTag = (()=>{
+    OneSignal.User.addTag("test", "1");
+    alert("tag added");
+  });
+
+  const promptSlide = (()=>{
+    OneSignal.Slidedown.promptPush()
+  });
+  
+
+  </script>
+  </head>
+  <body class="admin bg_white">
+  <header>
+      <div class="head_bar">
+          <div>
+              <h1>OneSignal Test</h1>
+          </div>
+      </div>
+  </header>
+  <ul class="btn_wrap_mp" align="center">
+    <button type="button" class="btn btn-primary" onclick="addTag()">Add Tag</button>
+    <button type="button" class="btn btn-primary" onclick="promptSlide()">Prompt Slide</button>
+  </ul>
+  </body>
 </html>
