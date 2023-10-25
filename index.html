@@ -26,14 +26,8 @@
 
   // OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
 
-  OneSignal.Notifications.addEventListener("permissionChange", ()=>{
-    if (!permission) {
-      console.log('promptSlide')
-      OneSignal.Slidedown.promptPush()
-    }
-  });
-
-  // OneSignal.login("100234")
+  async const permission = (() => await OneSignal.Notifications.requestPermission());
+  if (!permission) OneSignal.Slidedown.promptPush()
   
   const addTag = (()=>{
     OneSignal.User.addTag("test", "1");
