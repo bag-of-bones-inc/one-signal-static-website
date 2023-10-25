@@ -51,10 +51,10 @@
 	});
 
 	const promptSlide = (()=>{
-		OneSignal.Slidedown.promptPush()
+		window.OneSignalDeferred.Slidedown.promptPush()
 	});
 
-	OneSignal.Notifications.addEventListener("permissionChange", ()=>{
+	window.OneSignalDeferred.Notifications.addEventListener("permissionChange", ()=>{
 		if (!permission) {
 			promptSlide()
 		}
