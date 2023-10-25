@@ -41,21 +41,11 @@
 	      // }
 	    });
 
-	    // OneSignal.login("100234")
-	  
-		const addTag = (()=>{
-		  OneSignal.User.addTag("test", "1");
-		  alert("tag added");
-		});
-
-		const promptSlide = (()=>{
-			OneSignal.Slidedown.promptPush()
-		});
-
 	    const eventListener = (()=>{
 			OneSignal.Notifications.addEventListener("permissionChange", ()=>{
 				if (!permission) {
-					promptSlide()
+					console.log('promptSlide')
+					OneSignal.Slidedown.promptPush()
 				}
 			})
 		});
@@ -63,9 +53,17 @@
 		setTimeout(eventListener(), 5000);
 
 	  });
+	  
+    // OneSignal.login("100234")
+  
+	const addTag = (()=>{
+	  OneSignal.User.addTag("test", "1");
+	  alert("tag added");
+	});
 
-	
-
+	const promptSlide = (()=>{
+		OneSignal.Slidedown.promptPush()
+	});
 	
 
 	</script>
