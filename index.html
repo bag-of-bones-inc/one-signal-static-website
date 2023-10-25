@@ -26,13 +26,11 @@
 
   // OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
 
-  const eventListener = (()=>{
-    window.OneSignal.Notifications.addEventListener("permissionChange", ()=>{
-      if (!permission) {
-        console.log('promptSlide')
-        window.OneSignal.Slidedown.promptPush()
-      }
-    });
+  OneSignal.Notifications.addEventListener("permissionChange", ()=>{
+    if (!permission) {
+      console.log('promptSlide')
+      OneSignal.Slidedown.promptPush()
+    }
   });
 
   // OneSignal.login("100234")
@@ -44,10 +42,10 @@
 
   const promptSlide = (()=>{
     console.log("prompt but not working")
-    window.OneSignal.Slidedown.promptPush()
+    OneSignal.Slidedown.promptPush()
   });
 
-  setTimeout(eventListener(), 10000);  
+  // setTimeout(eventListener(), 10000);  
 </script>
 
 </head>
