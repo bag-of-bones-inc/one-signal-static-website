@@ -26,7 +26,7 @@
 
   // OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
 
-  let permission =  await OneSignal.Notifications.requestPermission();
+  let permission = OneSignal.Notifications.permission;
   if (!permission) OneSignal.Slidedown.promptPush()
   
   const addTag = (()=>{
