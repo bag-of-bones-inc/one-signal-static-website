@@ -17,14 +17,14 @@
 
   
 
-  // const eventListener = (()=>{
-  //   OneSignal.Notifications.addEventListener("permissionChange", ()=>{
-  //     if (!permission) {
-  //       console.log('promptSlide')
-  //       // OneSignal.Slidedown.promptPush()
-  //     }
-  //   });
-  // });
+  const eventListener = (()=>{
+    OneSignal.Notifications.addEventListener("permissionChange", ()=>{
+      if (!permission) {
+        console.log('promptSlide')
+        OneSignal.Slidedown.promptPush()
+      }
+    });
+  });
 
   // OneSignal.login("100234")
   
@@ -35,10 +35,10 @@
 
   const promptSlide = (()=>{
     console.log("prompt but not working")
-    // OneSignal.Slidedown.promptPush()
+    OneSignal.Slidedown.promptPush()
   });
 
-  // setTimeout(eventListener(), 5000);  
+  setTimeout(eventListener(), 5000);  
 </script>
 
 </head>
