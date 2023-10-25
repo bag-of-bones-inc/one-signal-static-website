@@ -13,16 +13,18 @@
     OneSignal.init({
       appId: "6970c1c2-d726-4426-ac3b-b029c0fc0bce",
     });
+  }); 
+
+  
 
   const eventListener = (()=>{
-    OneSignal.Notifications.addEventListener("permissionChange", ()=>{
-      if (!permission) {
-        console.log('promptSlide')
-        OneSignal.Slidedown.promptPush()
-      }
-    })
+  OneSignal.Notifications.addEventListener("permissionChange", ()=>{
+    if (!permission) {
+      console.log('promptSlide')
+      OneSignal.Slidedown.promptPush()
+    }
   });
-
+  
   setTimeout(eventListener(), 5000);  
   });
 
@@ -34,6 +36,7 @@
   });
 
   const promptSlide = (()=>{
+    console.log("prompt but not working")
     OneSignal.Slidedown.promptPush()
   });
 </script>
