@@ -53,13 +53,17 @@
 	const promptSlide = (()=>{
 		OneSignal.Slidedown.promptPush()
 	});
+
+	const eventListener = (()=>{
+		OneSignal.Notifications.addEventListener("permissionChange", ()=>{
+			if (!permission) {
+				promptSlide()
+			}
+		})
+	});
 	
-	setTimeout(OneSignal.Notifications.addEventListener("permissionChange", ()=>{
-		if (!permission) {
-			promptSlide()
-		}
-	}), 3000);
-	
+	setTimeout(eventListener(), 5000);
+
 	</script>
 	</head>
 	<body class="admin bg_white">
