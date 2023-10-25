@@ -41,28 +41,32 @@
 	      // }
 	    });
 
+	    // OneSignal.login("100234")
+	  
+		const addTag = (()=>{
+		  OneSignal.User.addTag("test", "1");
+		  alert("tag added");
+		});
+
+		const promptSlide = (()=>{
+			OneSignal.Slidedown.promptPush()
+		});
+
+	    const eventListener = (()=>{
+			OneSignal.Notifications.addEventListener("permissionChange", ()=>{
+				if (!permission) {
+					promptSlide()
+				}
+			})
+		});
+
+		setTimeout(eventListener(), 5000);
+
 	  });
 
-	// OneSignal.login("100234")
-	  
-	const addTag = (()=>{
-	  OneSignal.User.addTag("test", "1");
-	  alert("tag added");
-	});
-
-	const promptSlide = (()=>{
-		OneSignal.Slidedown.promptPush()
-	});
-
-	const eventListener = (()=>{
-		OneSignal.Notifications.addEventListener("permissionChange", ()=>{
-			if (!permission) {
-				promptSlide()
-			}
-		})
-	});
 	
-	setTimeout(eventListener(), 5000);
+
+	
 
 	</script>
 	</head>
