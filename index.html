@@ -6,9 +6,6 @@
 <!-- <link rel="manifest" href="../manifest.json"> -->
 <link rel="manifest" href="manifest.json">
 <title>MyPage｜デモこども園</title>
-
-<!-- <link href="./css/main_mp.css" rel="stylesheet" type="text/css"> -->
-<!-- <link href="./css/button_mp.css" rel="stylesheet" type="text/css"> -->
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
@@ -16,6 +13,28 @@
     OneSignal.init({
       appId: "6970c1c2-d726-4426-ac3b-b029c0fc0bce",
     });
+
+  const eventListener = (()=>{
+    OneSignal.Notifications.addEventListener("permissionChange", ()=>{
+      if (!permission) {
+        console.log('promptSlide')
+        OneSignal.Slidedown.promptPush()
+      }
+    })
+  });
+
+  setTimeout(eventListener(), 5000);  
+  });
+
+  // OneSignal.login("100234")
+  
+  const addTag = (()=>{
+    OneSignal.User.addTag("test", "1");
+    alert("tag added");
+  });
+
+  const promptSlide = (()=>{
+    OneSignal.Slidedown.promptPush()
   });
 </script>
 
@@ -30,6 +49,9 @@
   </header>
   <ul class="btn_wrap_mp" align="center">
     <a href="menu_test.html">menu_test</a>
+
+    <button type="button" class="btn btn-primary" onclick="addTag()">Add Tag</button>
+    <button type="button" class="btn btn-primary" onclick="promptSlide()">Prompt Slide</button>
   </ul>
   </body>
 </html>
