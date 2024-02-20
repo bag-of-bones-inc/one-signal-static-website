@@ -6,21 +6,36 @@
 <!-- <link rel="manifest" href="../manifest.json"> -->
 <link rel="manifest" href="manifest.json">
 <title>MyPage｜デモこども園</title>
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
+
+<script>
+window.OneSignalDeferred = window.OneSignalDeferred || [];
+window.OneSignalDeferred.push(async function(OneSignal) {
+  await OneSignal.init({
+    appId: "6970c1c2-d726-4426-ac3b-b029c0fc0bce",
+    notifyButton: {
+      enable: true
+    },
+    serviceWorkerParam: { scope: "/js/push/onesignal/" },
+    serviceWorkerPath: "js/push/onesignal/OneSignalSDKWorker.js",
+    });
+});
+</script>
+<!-- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   window.OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
       appId: "6970c1c2-d726-4426-ac3b-b029c0fc0bce",
     });
-    OneSignal.Notifications.addEventListener("permissionChange", ()=>{
-      if (!permission) {
-        console.log('promptSlide')
-        OneSignal.Slidedown.promptPush()
-      }
-    });
+    // OneSignal.Notifications.addEventListener("permissionChange", ()=>{
+    //   if (!permission) {
+    //     console.log('promptSlide')
+    //     OneSignal.Slidedown.promptPush()
+    //   }
+    // });
   }); 
-  OneSignal.Notifications.permission
+  // OneSignal.Notifications.permission
   // function permissionChangeListener(permission) {
 
   //   if (!permission) {
@@ -34,18 +49,18 @@
 
   // OneSignal.login("100234")
   
-  const addTag = (()=>{
-    OneSignal.User.addTag("test", "1");
-    alert("tag added");
-  });
+  // const addTag = (()=>{
+  //   OneSignal.User.addTag("test", "1");
+  //   alert("tag added");
+  // });
 
-  const promptSlide = (()=>{
-    console.log("prompt but not working")
-    OneSignal.Slidedown.promptPush()
-  });
+  // const promptSlide = (()=>{
+  //   console.log("prompt but not working")
+  //   OneSignal.Slidedown.promptPush()
+  // });
 
-  setTimeout(eventListener(), 10000);  
-</script>
+  // setTimeout(eventListener(), 10000);  
+</script> -->
 
 </head>
   <body class="admin bg_white">
