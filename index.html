@@ -9,8 +9,8 @@
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(function(OneSignal) {
-    OneSignal.init({
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
       appId: "6970c1c2-d726-4426-ac3b-b029c0fc0bce",
     });
     OneSignal.Notifications.addEventListener("permissionChange", ()=>{
@@ -20,17 +20,17 @@
       }
     });
   }); 
+  OneSignal.Notifications.permission
+  // function permissionChangeListener(permission) {
 
-  function permissionChangeListener(permission) {
+  //   if (!permission) {
+  //       console.log('promptSlide')
+  //       OneSignal.Slidedown.promptPush()
+  //     }
 
-    if (!permission) {
-        console.log('promptSlide')
-        OneSignal.Slidedown.promptPush()
-      }
+  // }
 
-  }
-
-  OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
+  // OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
 
   // OneSignal.login("100234")
   
@@ -44,7 +44,7 @@
     OneSignal.Slidedown.promptPush()
   });
 
-  // setTimeout(eventListener(), 10000);  
+  setTimeout(eventListener(), 10000);  
 </script>
 
 </head>
