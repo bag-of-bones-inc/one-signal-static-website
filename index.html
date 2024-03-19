@@ -16,6 +16,12 @@ OneSignalDeferred.push(async function(OneSignal) {
     notifyButton: {
       enable: true
     },
+    webhooks: {
+      cors: false, // Defaults to false if omitted
+      'notification.willDisplay': 'https://webhook-test.com/d3fc96d1786cd729a0f6dcc995e299b8', // e.g. https://site.com/hook
+      // 'notification.clicked': 'YOUR_WEBHOOK_URL',
+      // ... follow the same format for any event in the list above
+    }
     serviceWorkerParam: { scope: "/js/push/onesignal/" },
     serviceWorkerPath: "js/push/onesignal/OneSignalSDKWorker.js",
     });
