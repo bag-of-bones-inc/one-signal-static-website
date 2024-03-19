@@ -10,8 +10,8 @@
 <!-- <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js?v=160101 defer></script> -->
 <script>
 window.OneSignalDeferred = window.OneSignalDeferred || [];
-OneSignalDeferred.push(async function(OneSignal) {
-  await OneSignal.init({
+OneSignalDeferred.push(function(OneSignal) {
+  OneSignal.init({
     appId: "6970c1c2-d726-4426-ac3b-b029c0fc0bce",
     notifyButton: {
       enable: true
@@ -25,7 +25,12 @@ OneSignalDeferred.push(async function(OneSignal) {
     serviceWorkerParam: { scope: "/js/push/onesignal/" },
     serviceWorkerPath: "js/push/onesignal/OneSignalSDKWorker.js",
     });
+  OneSignal.Notifications.addEventListener("foregroundWillDisplay", foregroundListener);
 });
+
+function foregroundListener(event) {
+  console.log(`${event}`);
+}
 </script>
 <!-- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
