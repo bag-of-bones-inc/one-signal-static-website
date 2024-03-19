@@ -25,7 +25,7 @@ OneSignalDeferred.push(function(OneSignal) {
     serviceWorkerParam: { scope: "/js/push/onesignal/" },
     serviceWorkerPath: "js/push/onesignal/OneSignalSDKWorker.js",
     });
-  OneSignal.Notifications.addEventListener("foregroundWillDisplay", foregroundListener);
+  if(OneSignal) OneSignal.Notifications.addEventListener("foregroundWillDisplay", foregroundListener);
 });
 
 function foregroundListener(event) {
