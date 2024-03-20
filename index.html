@@ -7,32 +7,40 @@
 <link rel="manifest" href="manifest.json">
 <title>MyPage｜デモこども園</title>
 <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
-<!-- <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js?v=160101 defer></script> -->
 <script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function(OneSignal) {
+    OneSignal.init({
+      appId: "6970c1c2-d726-4426-ac3b-b029c0fc0bce",
+    });
+  });
+</script>
+<!-- <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js?v=160101 defer></script> -->
+<!-- <script>
 window.OneSignalDeferred = window.OneSignalDeferred || [];
 OneSignalDeferred.push(function(OneSignal) {
   OneSignal.init({
     appId: "6970c1c2-d726-4426-ac3b-b029c0fc0bce",
     notifyButton: {
       enable: true
-    }
-    // webhooks: {
-    //   cors: true, // Defaults to false if omitted
-    //   'notification.willDisplay': 'https://typedwebhook.tools/webhook/42911f55-38bb-466d-a7aa-dd941070dfa0',
-    //   // 'notification.clicked': 'https://typedwebhook.tools/webhook/42911f55-38bb-466d-a7aa-dd941070dfa0', 
-    //   // 'notification.displayed': 'https://typedwebhook.tools/webhook/2ecc0213-63ed-49bf-8ae4-d00a6bc02224'
-    //   // 'notification.willDisplay': 'https://typedwebhook.tools/webhook/2ecc0213-63ed-49bf-8ae4-d00a6bc02224'
-    // },
-    // serviceWorkerParam: { scope: "/one-signal-static-website/" },
-    // serviceWorkerPath: "one-signal-static-website/OneSignalSDKWorker.js",
+    },
+    webhooks: {
+      cors: true, // Defaults to false if omitted
+      'notification.willDisplay': 'https://typedwebhook.tools/webhook/42911f55-38bb-466d-a7aa-dd941070dfa0',
+      // 'notification.clicked': 'https://typedwebhook.tools/webhook/42911f55-38bb-466d-a7aa-dd941070dfa0', 
+      // 'notification.displayed': 'https://typedwebhook.tools/webhook/2ecc0213-63ed-49bf-8ae4-d00a6bc02224'
+      // 'notification.willDisplay': 'https://typedwebhook.tools/webhook/2ecc0213-63ed-49bf-8ae4-d00a6bc02224'
+    },
+    serviceWorkerParam: { scope: "/one-signal-static-website/" },
+    serviceWorkerPath: "one-signal-static-website/OneSignalSDKWorker.js",
     });
-  // if(OneSignal) OneSignal.Notifications.addEventListener("foregroundWillDisplay", foregroundListener);
+  if(OneSignal) OneSignal.Notifications.addEventListener("foregroundWillDisplay", foregroundListener);
 });
 
-// function foregroundListener(event) {
-//   console.log(`${event}`);
-// }
-</script>
+function foregroundListener(event) {
+  console.log(`${event}`);
+}
+</script> -->
 <!-- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
