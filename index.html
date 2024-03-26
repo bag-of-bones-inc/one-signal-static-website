@@ -25,7 +25,17 @@
     serviceWorkerParam: { scope: "/one-signal-static-website/" },
     serviceWorkerPath: "one-signal-static-website/OneSignalSDKWorker.js",
     });
+
+    if(OneSignal) OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
+
+    function permissionChangeListener(permission) {
+      if (permission) {
+        console.log(`permission accepted!`);
+      }
+    }
   });
+
+
 </script>
 <!-- <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js?v=160101 defer></script> -->
 <!-- <script>
