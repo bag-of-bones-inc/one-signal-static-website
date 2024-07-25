@@ -63,7 +63,7 @@ function foregroundListener(event) {
   console.log(`${event}`);
 }
 </script> -->
-<!-- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   window.OneSignalDeferred.push(async function(OneSignal) {
@@ -91,18 +91,24 @@ function foregroundListener(event) {
 
   // OneSignal.login("100234")
   
-  // const addTag = (()=>{
-  //   OneSignal.User.addTag("test", "1");
-  //   alert("tag added");
-  // });
+  const addTag = (()=>{
+    console.log("{ test: 1 }");
+    alert("tag added");
+    if(OneSignal) OneSignal.User.addTag("test", "1");
+  });
 
-  // const promptSlide = (()=>{
-  //   console.log("prompt but not working")
-  //   OneSignal.Slidedown.promptPush()
-  // });
+  const promptSlide = (()=>{
+    console.log("prompt slide");
+    if(OneSignal) OneSignal.Slidedown.promptPush();
+  });
+
+  const addEmail = (()=>{
+    console.log("prompt slide");
+    if(OneSignal) OneSignal.User.addEmail("jeffreychen@onesignal.com");
+  });
 
   // setTimeout(eventListener(), 10000);  
-</script> -->
+</script>
 
 </head>
   <body class="admin bg_white">
@@ -118,6 +124,7 @@ function foregroundListener(event) {
 
     <button type="button" class="btn btn-primary" onclick="addTag()">Add Tag</button>
     <button type="button" class="btn btn-primary" onclick="promptSlide()">Prompt Slide</button>
+    <button type="button" class="btn btn-primary" onclick="addEmail()">Add Email</button>
   </ul>
   </body>
 </html>
