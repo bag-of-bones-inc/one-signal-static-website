@@ -31,11 +31,28 @@
     function permissionChangeListener(permission) {
       if (permission) {
         console.log(`permission accepted!`);
+        if(OneSignal) 
+          OneSignal.login("100234");
+          OneSignal.User.addTag("name", "jeff");
       }
     }
   });
 
+  const addTag = (()=>{
+    console.log("{ test: 1 }");
+    alert("tag added");
+    if(OneSignal) OneSignal.User.addTag("test", "1");
+  });
 
+  const promptSlide = (()=>{
+    console.log("prompt slide");
+    if(OneSignal) OneSignal.Slidedown.promptPush();
+  });
+
+  const addEmail = (()=>{
+    console.log("add email");
+    if(OneSignal) OneSignal.User.addEmail("jeffreychen@onesignal.com");
+  });
 </script>
 <!-- <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js?v=160101 defer></script> -->
 <!-- <script>
@@ -62,7 +79,7 @@ OneSignalDeferred.push(function(OneSignal) {
 function foregroundListener(event) {
   console.log(`${event}`);
 }
-</script> -->
+</script> 
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
@@ -108,7 +125,7 @@ function foregroundListener(event) {
   });
 
   // setTimeout(eventListener(), 10000);  
-</script>
+</script> -->
 
 </head>
   <body class="admin bg_white">
