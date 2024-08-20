@@ -16,6 +16,30 @@
       notifyButton: {
         enable: true,
       },
+    promptOptions: {
+      slidedown: {
+        prompts: [
+          {
+            type: "email",
+            autoPrompt: false,
+            text: {
+              emailLabel: "Insert Email Address",
+              acceptButton: "Submit",
+              cancelButton: "No Thanks",
+              actionMessage: "Receive the latest news, updates and offers as they happen.",
+              updateMessage: "Update your push notification subscription preferences.",
+              confirmMessage: "Thank You!",
+              positiveUpdateButton: "Save Preferences",
+              negativeUpdateButton: "Cancel",
+            }
+            // delay: {
+            //   pageViews: 1,
+            //   timeDelay: 20
+            // },
+          },
+         // { type: "push",...},//example adding push
+        ]
+    },  
     webhooks: {
       cors: true, // Defaults to false if omitted
       'notification.willDisplay': 'https://enjkc0v93uybm.x.pipedream.net',
