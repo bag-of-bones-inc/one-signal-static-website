@@ -51,16 +51,16 @@
     serviceWorkerPath: "one-signal-static-website/OneSignalSDKWorker.js",
     });
 
-    if(OneSignal) OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
+    // if(OneSignal) OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
 
-    function permissionChangeListener(permission) {
-      if (permission) {
-        console.log(`permission accepted!`);
-        if(OneSignal) 
-          OneSignal.login("100234");
-          OneSignal.User.addTag("name", "jeff");
-      }
-    }
+    // function permissionChangeListener(permission) {
+    //   if (permission) {
+    //     console.log(`permission accepted!`);
+    //     if(OneSignal) 
+    //       OneSignal.login("100234");
+    //       OneSignal.User.addTag("name", "jeff");
+    //   }
+    // }
   });
 
   const addTag = (()=>{
